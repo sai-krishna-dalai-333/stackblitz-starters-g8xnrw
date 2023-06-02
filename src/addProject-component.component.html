@@ -1,0 +1,27 @@
+<form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+<div>
+  <label for="name">Project Name:</label>
+  <input type="text" id="name" formControlName="name" required>
+  <div *ngIf="projectForm.controls.name.invalid && projectForm.controls.name.touched">
+    <small>Please enter a project name.</small>
+  </div>
+</div>
+
+<div>
+  <label for="startDate">Start Date:</label>
+  <input type="date" id="startDate" formControlName="startDate" required>
+  <div *ngIf="projectForm.controls.startDate.invalid && projectForm.controls.startDate.touched">
+    <small>Please select a start date.</small>
+  </div>
+</div>
+
+<div>
+  <label for="endDate">End Date:</label>
+  <input type="date" id="endDate" formControlName="endDate" required>
+  <div *ngIf="projectForm.controls.endDate.invalid && projectForm.controls.endDate.touched">
+    <small>Please select an end date.</small>
+  </div>
+</div>
+
+<button type="submit" [disabled]="projectForm.invalid">Submit</button>
+</form>
